@@ -31,7 +31,7 @@ const App: () => React$Node = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTemp(Math.floor(Math.random() * 100));
-    }, 10000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [temp]);
 
@@ -51,6 +51,10 @@ const App: () => React$Node = () => {
       <View style={styles.body}>
         <Text style={styles[checkTemp(temp)]}>{`${temp}°C`}</Text>
       </View>
+      <View style={styles.footer}>
+        <View style={styles.square}></View>
+      </View>
+
     </>
   );
 };
@@ -68,17 +72,17 @@ const styles = StyleSheet.create({
     fontSize: 72,
   },
   high: {
-    color: 'red',
+    color: 'tomato',
     fontWeight: 'bold',
     fontSize: 72,
   },
   medium: {
-    color: 'orange',
+    color: 'gold',
     fontWeight: 'bold',
     fontSize: 72,
   },
   low: {
-    color: 'blue',
+    color: 'dodgerblue',
     fontWeight: 'bold',
     fontSize: 72,
   },
@@ -86,6 +90,16 @@ const styles = StyleSheet.create({
     width: 500,
     height: 500,
   },
+  footer: {
+    height: 90,
+    backgroundColor: "tomato",
+  },
+  square: {
+    height: "100%",
+    flexDirection: "row",
+    width: "50%",
+    backgroundColor: "dodgerblue"
+  }
 });
 
 export default App;
