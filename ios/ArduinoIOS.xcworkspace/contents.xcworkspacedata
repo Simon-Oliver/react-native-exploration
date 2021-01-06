@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BLE.swift">
+   </FileRef>
+   <FileRef
       location = "group:ArduinoIOS.xcodeproj">
    </FileRef>
    <FileRef
