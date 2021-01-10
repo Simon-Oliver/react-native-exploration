@@ -38,12 +38,17 @@ export default class App extends Component {
         subscription.remove();
       }
     }, true);
+
+    this.checkMessage()
+  }
+
+  componentDidUpdate() {
+    this.checkMessage()
   }
 
   componentWillUnmount() {
-
+    this.manager.stopDeviceScan()
   }
-
 
   // scanAndConnect() {
   //   this.manager.startDeviceScan(null, null, (error, device) => {
@@ -103,62 +108,65 @@ export default class App extends Component {
           device.cancelConnection()
         });
         device.cancelConnection()
-        device.connect()
-          .then((device) => {
-            // this.info("Discovering services and characteristics")
-            console.log("Connected...Discovering services and characteristics");
-            return device.discoverAllServicesAndCharacteristics()
-          })
-          .then((device) => {
-            console.log('Services and characteristics discovered');
-            //return this.testChar(device)
-            const services = device.services()
-            console.log("----------------->", services);
-            // return device.readCharacteristicForService(services)
-            return device.monitorCharacteristicForService("4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", (err, val) => {
-              if (val !== null) {
-                console.log(Buffer.from(val.value, 'base64').toString('ascii'))
-                this.setState({ value: Buffer.from(val.value, 'base64').toString('ascii'), message: "" })
-              } else if (val == null) {
+
+        try {
+          device.connect()
+            .then((device) => {
+              try {
+                // this.info("Discovering services and characteristics")
+                console.log("Connected...Discovering services and characteristics");
+                return device.discoverAllServicesAndCharacteristics()
+              } catch (error) {
                 device.cancelConnection()
                 this.scanAndConnect()
                 this.setState({ message: "Sensor disconnected" })
               }
             })
-            // device.readCharacteristicForService("abbaff00-e56a-484c-b832-8b17cf6cbfe8")
-            // this.info("Setting notifications")
-            //return this.setupNotifications(device)
-          })
-          .then(() => {
-            // const characteristicsData = device.readCharacteristicForService();
-            // console.log("------------>", characteristicsData);
-            //this.info("Listening...")
-          },
-            (error) => {
-              console.warn(error.message);
-              // this.error(error.message)
+            .then((device) => {
+              console.log('Services and characteristics discovered');
+              //return this.testChar(device)
+
+              try {
+                const services = device.services()
+                console.log("----------------->", services);
+                // return device.readCharacteristicForService(services)
+                return device.monitorCharacteristicForService("4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", (err, val) => {
+                  if (val !== null) {
+                    console.log(Buffer.from(val.value, 'base64').toString('ascii'))
+                    hideMessage()
+                    this.setState({ value: Buffer.from(val.value, 'base64').toString('ascii'), message: null })
+                  } else if (val == null) {
+                    device.cancelConnection()
+                    this.scanAndConnect()
+                    this.setState({ message: "Sensor disconnected" })
+                  }
+                })
+              } catch (error) {
+                device.cancelConnection()
+                this.scanAndConnect()
+                this.setState({ message: "Sensor disconnected" })
+              }
             })
+
+        } catch (error) {
+          console.log(error)
+        }
       }
     });
+
+
   }
 
-  // listener(err, value) {
-  //   if (err) {
-  //     console.log("Error: ", err)
-  //     this.setState({ err })
-  //   }
-  //   this.setState({ value })
-  // }
 
-
-  renderMessage() {
-    return (
-      <View style={styles.message}>
-        <Text style={styles.textMsg}>{this.state.message}</Text>
-      </View>
-    )
+  checkMessage() {
+    if (this.state.message != null) {
+      showMessage({
+        message: this.state.message,
+        type: "warning",
+        autoHide: false
+      });
+    }
   }
-
 
   render() {
     return (
