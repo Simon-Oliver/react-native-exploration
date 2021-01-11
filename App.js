@@ -163,17 +163,20 @@ export default class App extends Component {
       showMessage({
         message: this.state.message,
         type: "warning",
-        autoHide: false
+        autoHide: false,
       });
     }
   }
 
   render() {
     return (
+
       <View style={styles.container}>
-        <View >
+        <StatusBar barStyle="light-content" ></StatusBar>
+        <View style={styles.message}>
           <Text style={styles.text}>{`${Number(this.state.value)}°C`}</Text>
         </View>
+        <View style={styles.footer}></View>
         <FlashMessage position="top" />
       </View>
     );
@@ -183,33 +186,31 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
     backgroundColor: '#0D0D0D',
     width: window.width,
     height: window.height
   },
-  scroll: {
-    flex: 1,
-    backgroundColor: '#f0f0f0',
-    margin: 10,
-  },
+
   text: {
     color: "white",
     fontSize: 100
   },
   message: {
-    position: 'absolute',
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "tomato",
-    fontSize: 20,
-    height: 50,
+    fontSize: 100,
     width: Dimensions.get('window').width,
-    zIndex: 100,
   },
   textMsg: {
     textAlign: 'center',
     color: "white",
+  },
+  footer: {
+    height: "10%",
+    width: Dimensions.get('window').width,
+    backgroundColor: "red"
   }
 });
