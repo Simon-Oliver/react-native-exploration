@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     StyleSheet,
     Text,
@@ -16,13 +16,29 @@ import {
     SafeAreaView,
     StatusBar,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function Home() {
+
+export default function Nav({ navigationRef }) {
+
+    const renderBottomNav = () => {
+        const arr = ["Home", "Temperature", "Nothing"]
+        return arr.map((e, i) => {
+            return (
+                <View key={i} style={styles.footerEl}>
+                    <Button color="white" title={e} onPress={() => navigationRef.current?.navigate(e)} style={styles.grey}></Button>
+                </View>
+            )
+        })
+    }
+
+
     return (
-        <SafeAreaView styles={styles.container}>
-            <Text>This is the home screen</Text>
-        </SafeAreaView>
+        <View style={styles.footer} >
+            {renderBottomNav()}
+        </View>
     )
+
 }
 
 const styles = StyleSheet.create({
@@ -76,3 +92,4 @@ const styles = StyleSheet.create({
         height: 40
     }
 });
+

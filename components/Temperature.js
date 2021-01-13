@@ -168,27 +168,23 @@ export default class App extends Component {
         }
     }
 
-    renderBottomNav() {
-        const arr = [[], [], []]
-        return arr.map((e, i) => {
-            return (
-                <View key={i} style={styles.footerEl}>
-                    <Button title="Test" onPress={() => this.props.navigation.navigate('Home')} style={styles.grey}></Button>
-                </View>
-            )
-        })
-    }
+    // renderBottomNav() {
+    //     const arr = [[], [], []]
+    //     return arr.map((e, i) => {
+    //         return (
+    //             <View key={i} style={styles.footerEl}>
+    //                 <Button title="Test" onPress={() => this.props.navigation.navigate('Home')} style={styles.grey}></Button>
+    //             </View>
+    //         )
+    //     })
+    // }
 
     render() {
         return (
             <View style={styles.container}>
                 <StatusBar barStyle="light-content" ></StatusBar>
                 <View style={styles.message}>
-                    <Text style={styles.text}>{`${Number(this.state.value)}°C`}</Text>
-                </View>
-                <View style={styles.footer}>
-                    {this.renderBottomNav()}
-
+                    <Text onPress={() => this.props.navigation.navigate("Home")} style={styles.text}>{`${Number(this.state.value)}°C`}</Text>
                 </View>
                 <FlashMessage position="top" />
             </View>

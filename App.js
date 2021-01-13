@@ -22,27 +22,36 @@ import { NavigationContainer } from '@react-navigation/native'; //@react-navigat
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
+const navigationRef = React.createRef();
+
 import Temperature from "./components/Temperature"
 import Home from "./components/Home"
+import Nav from "./components/Nav"
 
 
 export default class App extends Component {
 
+
   render() {
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
+      <NavigationContainer ref={navigationRef}>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false
+          }}>
           <Stack.Screen
             name="Temperature"
             component={Temperature}
-            options={{ title: 'Temperature' }}
+            options={{ title: 'Temperature', animationEnabled: false }}
           />
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: 'Home' }}
+            options={{ title: 'Home', animationEnabled: false }}
           />
+
         </Stack.Navigator>
+        <Nav navigationRef={navigationRef}></Nav>
       </NavigationContainer>
     );
   }
