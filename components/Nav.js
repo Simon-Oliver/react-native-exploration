@@ -16,17 +16,20 @@ import {
     SafeAreaView,
     StatusBar,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faEllipsisH, faHome, faThermometerThreeQuarters } from '@fortawesome/free-solid-svg-icons'
+
 
 
 export default function Nav({ navigationRef }) {
 
     const renderBottomNav = () => {
-        const arr = ["Home", "Temperature", "Nothing"]
+        const arr = [{ link: "Home", icon: faHome }, { link: "Temperature", icon: faThermometerThreeQuarters }, { link: "Setting", icon: faEllipsisH }]
         return arr.map((e, i) => {
             return (
                 <View key={i} style={styles.footerEl}>
-                    <Button color="white" title={e} onPress={() => navigationRef.current?.navigate(e)} style={styles.grey}></Button>
+                    <FontAwesomeIcon onPress={() => navigationRef.current?.navigate(e.link)} icon={e.icon} size={36} color={"white"} />
+                    {/* <Button color="white" title={e} onPress={() => navigationRef.current?.navigate(e)} style={styles.grey}></Button> */}
                 </View>
             )
         })
@@ -67,17 +70,17 @@ const styles = StyleSheet.create({
         color: "white",
     },
     footer: {
-        height: "8%",
+        height: "10%",
         flexDirection: 'row',
         width: Dimensions.get('window').width,
         backgroundColor: "red"
     },
     footerEl: {
-        paddingTop: 10,
+        paddingTop: 18,
         alignItems: "center",
         height: "100%",
         flex: 1,
-        backgroundColor: "green"
+        backgroundColor: "#1d242b"
     },
     footerElr: {
         paddingTop: 10,
