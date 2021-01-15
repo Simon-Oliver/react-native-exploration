@@ -20,6 +20,7 @@
 		7E21EEE7EC670B84E392260B /* libPods-ArduinoIOS-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0806E9BD40F46F71E24552DF /* libPods-ArduinoIOS-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9477E5B878DE5214000010E2 /* libPods-ArduinoIOS-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1500B26F68D25587C457537 /* libPods-ArduinoIOS-tvOSTests.a */; };
+		F430250E25B24EC90051224E /* BLE_Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430250D25B24EC90051224E /* BLE_Setup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		EC26766FF1C0A58D45372C34 /* Pods-ArduinoIOS-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArduinoIOS-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ArduinoIOS-tvOSTests/Pods-ArduinoIOS-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F430250C25B24EC80051224E /* ArduinoIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArduinoIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		F430250D25B24EC90051224E /* BLE_Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_Setup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F430250D25B24EC90051224E /* BLE_Setup.swift */,
+				F430250C25B24EC80051224E /* ArduinoIOS-Bridging-Header.h */,
 			);
 			name = ArduinoIOS;
 			sourceTree = "<group>";
@@ -294,7 +299,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = CA5RDZ3A5B;
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1230;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -570,6 +575,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F430250E25B24EC90051224E /* BLE_Setup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +675,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ArduinoIOS;
+				SWIFT_OBJC_BRIDGING_HEADER = "ArduinoIOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -692,6 +699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ArduinoIOS;
+				SWIFT_OBJC_BRIDGING_HEADER = "ArduinoIOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
