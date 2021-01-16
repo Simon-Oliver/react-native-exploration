@@ -15,35 +15,14 @@ import {
   Button,
   SafeAreaView,
   StatusBar,
-  TouchableOpacity,
 } from 'react-native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {
-  faEllipsisH,
-  faHome,
-  faThermometerThreeQuarters,
-} from '@fortawesome/free-solid-svg-icons';
 
-export default function Nav({navigationRef}) {
-  const renderBottomNav = () => {
-    const arr = [
-      {link: 'Home', icon: faHome},
-      {link: 'Temperature', icon: faThermometerThreeQuarters},
-      {link: 'Settings', icon: faEllipsisH},
-    ];
-    return arr.map((e, i) => {
-      return (
-        <TouchableOpacity
-          key={i}
-          style={styles.footerEl}
-          onPress={() => navigationRef.current?.navigate(e.link)}>
-          <FontAwesomeIcon icon={e.icon} size={36} color={'white'} />
-        </TouchableOpacity>
-      );
-    });
-  };
-
-  return <View style={styles.footer}>{renderBottomNav()}</View>;
+export default function Home() {
+  return (
+    <SafeAreaView styles={styles.container}>
+      <Text>This is the home screen</Text>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -72,16 +51,17 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   footer: {
-    height: '10%',
+    height: '8%',
     flexDirection: 'row',
     width: Dimensions.get('window').width,
+    backgroundColor: 'red',
   },
   footerEl: {
-    paddingTop: 18,
+    paddingTop: 10,
     alignItems: 'center',
     height: '100%',
     flex: 1,
-    backgroundColor: '#1d242b',
+    backgroundColor: 'green',
   },
   footerElr: {
     paddingTop: 10,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -18,38 +18,40 @@ import {
 } from 'react-native';
 
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native'; //@react-navigation/native
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native'; //@react-navigation/native
+import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 const navigationRef = React.createRef();
 
-import Temperature from "./components/Temperature"
-import Home from "./components/Home"
-import Nav from "./components/Nav"
-
+import Temperature from './pages/Temperature';
+import Home from './pages/Home';
+import Nav from './components/Nav';
+import Settings from './pages/Settings';
 
 export default class App extends Component {
-
-
   render() {
     return (
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator
           screenOptions={{
-            headerShown: false
+            headerShown: false,
           }}>
           <Stack.Screen
             name="Temperature"
             component={Temperature}
-            options={{ title: 'Temperature', animationEnabled: false }}
+            options={{title: 'Temperature', animationEnabled: false}}
           />
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: 'Home', animationEnabled: false }}
+            options={{title: 'Home', animationEnabled: false}}
           />
-
+          <Stack.Screen
+            name="Settings"
+            component={Settings}
+            options={{title: 'Settings', animationEnabled: false}}
+          />
         </Stack.Navigator>
         <Nav navigationRef={navigationRef}></Nav>
       </NavigationContainer>
@@ -64,6 +66,6 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     backgroundColor: '#0D0D0D',
     width: window.width,
-    height: window.height
+    height: window.height,
   },
 });
