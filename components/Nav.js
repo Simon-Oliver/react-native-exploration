@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -16,29 +16,36 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
+  Pressable
 } from 'react-native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
   faEllipsisH,
   faHome,
   faThermometerThreeQuarters,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function Nav({navigationRef}) {
+export default function Nav({ navigationRef }) {
+  const [routes, setRoute] = useState([
+    { link: 'Home', isActive: false, icon: faHome },
+    { link: 'Temperature', isActive: true, icon: faThermometerThreeQuarters },
+    { link: 'Settings', isActive: false, icon: faEllipsisH },
+  ])
+
   const renderBottomNav = () => {
-    const arr = [
-      {link: 'Home', icon: faHome},
-      {link: 'Temperature', icon: faThermometerThreeQuarters},
-      {link: 'Settings', icon: faEllipsisH},
-    ];
-    return arr.map((e, i) => {
+    return routes.map((e, i) => {
       return (
-        <TouchableOpacity
+        <Pressable
           key={i}
           style={styles.footerEl}
-          onPress={() => navigationRef.current?.navigate(e.link)}>
-          <FontAwesomeIcon icon={e.icon} size={36} color={'white'} />
-        </TouchableOpacity>
+          onPress={() => {
+            navigationRef.current?.navigate(e.link)
+            const newRoute = navigationRef.current.getCurrentRoute().name
+            const newState = routes.map(e => e.link != newRoute ? { ...e, isActive: false } : { ...e, isActive: true })
+            setRoute(newState)
+          }}>
+          <FontAwesomeIcon icon={e.icon} size={36} color={e.isActive ? "#BEBEBE" : "white"} />
+        </Pressable>
       );
     });
   };
