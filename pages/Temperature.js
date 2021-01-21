@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -16,7 +16,7 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-import {BleManager} from 'react-native-ble-plx';
+import { BleManager } from 'react-native-ble-plx';
 import FlashMessage, {
   showMessage,
   hideMessage,
@@ -53,41 +53,6 @@ export default class App extends Component {
   componentWillUnmount() {
     this.manager.stopDeviceScan();
   }
-
-  // scanAndConnect() {
-  //   this.manager.startDeviceScan(null, null, (error, device) => {
-  //     if (error) {
-  //       // Handle error (scanning will be stopped automatically)
-  //       console.log("error ", error)
-  //       return
-  //     }
-
-  //     // Check if it is a device you are looking for based on advertisement data
-  //     // or other criteria.
-  //     if (device.name === 'ESP32' ||
-  //       device.name === 'ESP 32') {
-
-  //       // Stop scanning as it's not necessary if you are scanning for one device.
-  //       this.manager.stopDeviceScan();
-
-  //       // Proceed with connection.
-  //       device.connect()
-  //         .then((device) => {
-  //           console.log(device.discoverAllServicesAndCharacteristics())
-  //           return device.discoverAllServicesAndCharacteristics()
-  //         })
-  //         .then((device) => {
-  //           // Do work on device with services and characteristics
-  //           device.monitorCharacteristicForService("4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", (err, val) => this.listener(err, val))
-
-  //         })
-  //         .catch((error) => {
-  //           // Handle errors
-  //           console.log("Error: ", error)
-  //         });
-  //     }
-  //   });
-  // }
 
   scanAndConnect() {
     console.log('Scanning Started');
@@ -127,7 +92,7 @@ export default class App extends Component {
               } catch (error) {
                 device.cancelConnection();
                 this.scanAndConnect();
-                this.setState({message: 'Sensor disconnected'});
+                this.setState({ message: 'Sensor disconnected' });
               }
             })
             .then((device) => {
@@ -156,14 +121,14 @@ export default class App extends Component {
                     } else if (val == null) {
                       device.cancelConnection();
                       this.scanAndConnect();
-                      this.setState({message: 'Sensor disconnected'});
+                      this.setState({ message: 'Sensor disconnected' });
                     }
                   },
                 );
               } catch (error) {
                 device.cancelConnection();
                 this.scanAndConnect();
-                this.setState({message: 'Sensor disconnected'});
+                this.setState({ message: 'Sensor disconnected' });
               }
             });
         } catch (error) {

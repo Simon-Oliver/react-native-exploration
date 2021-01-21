@@ -19,8 +19,8 @@ import {
 
 export default function Home() {
   return (
-    <SafeAreaView styles={styles.container}>
-      <Text>This is the home screen</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>This is the home screen</Text>
     </SafeAreaView>
   );
 }
@@ -34,10 +34,9 @@ const styles = StyleSheet.create({
     width: window.width,
     height: window.height,
   },
-
   text: {
     color: 'white',
-    fontSize: 100,
+    fontSize: 20,
   },
   message: {
     flex: 1,

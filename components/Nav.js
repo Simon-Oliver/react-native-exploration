@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -23,12 +23,14 @@ import {
   faEllipsisH,
   faHome,
   faThermometerThreeQuarters,
+  faList,
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Nav({ navigationRef }) {
   const [routes, setRoute] = useState([
     { link: 'Home', isActive: false, icon: faHome },
     { link: 'Temperature', isActive: true, icon: faThermometerThreeQuarters },
+    // { link: 'List', isActive: false, icon: faList },
     { link: 'Settings', isActive: false, icon: faEllipsisH },
   ])
 
@@ -44,7 +46,7 @@ export default function Nav({ navigationRef }) {
             const newState = routes.map(e => e.link != newRoute ? { ...e, isActive: false } : { ...e, isActive: true })
             setRoute(newState)
           }}>
-          <FontAwesomeIcon icon={e.icon} size={36} color={e.isActive ? "#BEBEBE" : "white"} />
+          <FontAwesomeIcon icon={e.icon} size={36} color={e.isActive ? "#A9A9A9" : "white"} />
         </Pressable>
       );
     });

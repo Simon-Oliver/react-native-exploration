@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -18,8 +18,8 @@ import {
 } from 'react-native';
 
 import 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native'; //@react-navigation/native
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native'; //@react-navigation/native
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 const navigationRef = React.createRef();
@@ -28,6 +28,7 @@ import Temperature from './pages/Temperature';
 import Home from './pages/Home';
 import Nav from './components/Nav';
 import Settings from './pages/Settings';
+import List from './pages/List';
 
 export default class App extends Component {
   render() {
@@ -40,17 +41,22 @@ export default class App extends Component {
           <Stack.Screen
             name="Temperature"
             component={Temperature}
-            options={{title: 'Temperature', animationEnabled: false}}
+            options={{ title: 'Temperature', animationEnabled: false }}
           />
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{title: 'Home', animationEnabled: false}}
+            options={{ title: 'Home', animationEnabled: false }}
+          />
+          <Stack.Screen
+            name="List"
+            component={List}
+            options={{ title: 'List', animationEnabled: false }}
           />
           <Stack.Screen
             name="Settings"
             component={Settings}
-            options={{title: 'Settings', animationEnabled: false}}
+            options={{ title: 'Settings', animationEnabled: false }}
           />
         </Stack.Navigator>
         <Nav navigationRef={navigationRef}></Nav>
