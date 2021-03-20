@@ -10,6 +10,16 @@ target 'ArduinoIOS' do
 
   pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
 
+  pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+  'TextDetector',
+  'FaceDetectorMLKit',
+  'BarcodeDetectorMLKit'
+]
+
+  # Add the pods for the Firebase products you want to use in your app
+  # For example, to use Firebase Authentication and Cloud Firestore
+  pod 'Firebase/Core'
+
   target 'ArduinoIOSTests' do
     inherit! :complete
     # Pods for testing

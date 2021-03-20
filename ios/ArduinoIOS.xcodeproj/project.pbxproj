@@ -20,6 +20,7 @@
 		7E21EEE7EC670B84E392260B /* libPods-ArduinoIOS-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0806E9BD40F46F71E24552DF /* libPods-ArduinoIOS-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9477E5B878DE5214000010E2 /* libPods-ArduinoIOS-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1500B26F68D25587C457537 /* libPods-ArduinoIOS-tvOSTests.a */; };
+		A01DE467260694B0005A3FA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01DE466260694B0005A3FA7 /* GoogleService-Info.plist */; };
 		F430250E25B24EC90051224E /* BLE_Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430250D25B24EC90051224E /* BLE_Setup.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		56B50EBDE4F900F4BA44C6D3 /* Pods-ArduinoIOS-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArduinoIOS-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ArduinoIOS-tvOS/Pods-ArduinoIOS-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ArduinoIOS/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B1D63E2591704F720DD7B6A /* Pods-ArduinoIOS-ArduinoIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArduinoIOS-ArduinoIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ArduinoIOS-ArduinoIOSTests/Pods-ArduinoIOS-ArduinoIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		A01DE466260694B0005A3FA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4FA77A7347F3D88A80A52E5 /* Pods-ArduinoIOS-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArduinoIOS-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ArduinoIOS-tvOS/Pods-ArduinoIOS-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CD94ABCA8C19FB60FDAEF719 /* Pods-ArduinoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArduinoIOS.debug.xcconfig"; path = "Target Support Files/Pods-ArduinoIOS/Pods-ArduinoIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D1500B26F68D25587C457537 /* libPods-ArduinoIOS-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArduinoIOS-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				A01DE466260694B0005A3FA7 /* GoogleService-Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				F430250D25B24EC90051224E /* BLE_Setup.swift */,
@@ -347,6 +350,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A01DE467260694B0005A3FA7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,10 +473,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ArduinoIOS-ArduinoIOSTests/Pods-ArduinoIOS-ArduinoIOSTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionFaceModel/GoogleMVFaceDetectorResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionTextModel/GoogleMVTextDetectorResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,10 +517,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ArduinoIOS/Pods-ArduinoIOS-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionFaceModel/GoogleMVFaceDetectorResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionTextModel/GoogleMVTextDetectorResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

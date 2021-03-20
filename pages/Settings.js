@@ -20,7 +20,11 @@ import {
 
 export default function Settings() {
   const [isEnabled, setIsEnabled] = useState(false);
+  const [options, setOptions] = useState([
+    {},
+  ])
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row}>
