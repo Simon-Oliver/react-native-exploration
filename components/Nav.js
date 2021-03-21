@@ -30,7 +30,7 @@ export default function Nav({ navigationRef }) {
   const [routes, setRoute] = useState([
     { link: 'Home', isActive: false, icon: faHome },
     { link: 'Temperature', isActive: true, icon: faThermometerThreeQuarters },
-    // { link: 'List', isActive: false, icon: faList },
+    { link: 'List', isActive: false, icon: faList },
     { link: 'Settings', isActive: false, icon: faEllipsisH },
   ])
 

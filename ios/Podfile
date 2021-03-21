@@ -20,6 +20,8 @@ target 'ArduinoIOS' do
   # For example, to use Firebase Authentication and Cloud Firestore
   pod 'Firebase/Core'
 
+  pod 'react-native-cloud-fs', :path => '../node_modules/react-native-cloud-fs'
+
   target 'ArduinoIOSTests' do
     inherit! :complete
     # Pods for testing

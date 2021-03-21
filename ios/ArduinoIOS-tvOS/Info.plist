@@ -49,5 +49,17 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSUbiquitousContainers</key>
+<dict>
+    <key>iCloud.store</key>
+    <dict>
+        <key>NSUbiquitousContainerIsDocumentScopePublic</key>
+        <true/>
+        <key>NSUbiquitousContainerSupportedFolderLevels</key>
+        <string>One</string>
+        <key>NSUbiquitousContainerName</key>
+        <string>ArduinoIOS</string>
+    </dict>
+</dict>
 </dict>
 </plist>

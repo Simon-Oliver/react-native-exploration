@@ -64,7 +64,7 @@ export default class App extends Component {
       }
       // Check if it is a device you are looking for based on advertisement data
       // or other criteria.
-      console.log('Detected Device Details:', device.id, device.name);
+      //console.log('Detected Device Details:', device.id, device.name);
       // ||device.localName === 'BLEPeripheralApp')
       if (device.name === 'ESP32') {
         //
