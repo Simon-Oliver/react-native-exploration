@@ -93,13 +93,12 @@ class Home extends Component {
             renderItem={({ item }) => (
               <View style={styles.items}>
                 <TouchableOpacity style={{ width: "80%", padding: 10, height: "100%", display: 'flex', justifyContent: "center" }} onPress={() => console.log("Show Data", item)}>
-                  <Text numberOfLines={1} ellipsizeMode='tail'>{item}</Text>
+                  <Text selectable={true} numberOfLines={1} ellipsizeMode='tail'>{item}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.deleteButton} onPress={(e) => this.handleDelete(item)}>
                   <Text style={{ color: "white" }}>Delete</Text>
                 </TouchableOpacity>
               </View>)}>
-
           </FlatList>
 
         </View>
