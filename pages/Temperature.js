@@ -23,6 +23,8 @@ import FlashMessage, {
 } from 'react-native-flash-message';
 const Buffer = require('buffer').Buffer;
 
+import data from "../config.json"
+
 export default class App extends Component {
   constructor() {
     super();

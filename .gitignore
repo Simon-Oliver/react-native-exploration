@@ -60,3 +60,4 @@ buck-out/
 
 # Config
 config.json
+firebaseConfig.json
